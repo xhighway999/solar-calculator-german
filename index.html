@@ -9,7 +9,7 @@
     <meta content="azimuth, altitude, hour angle, sun position calculator, sun angle calculator, solar calculator, declination, solar angles, equation of time, inclination, java scripts" name="KEYWORDS">
     <meta content="This script calculates various solar angles like altitude, azimuth, horizontal shadow angle etc. and also gives the value of sunrise time, sunset time, sunrise azimuth angles etc." name="DESCRIPTION">
     <script src="code/solar2.js"></script>
-    <title>Solar Calculator</title>
+    <title>Sonnenwinkelrechner</title>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -25,12 +25,12 @@
   <body onload="window.status=&#39; * R E A D Y * &#39;;">
 <div class="container">
     <h1>Solar calculator</h1>
-    <p>Enter details below. Default location has been set for Adelaide, Australia (Latitude: 34.93 South, Longitude: 138.60 East).</p>
+    <p>Geben Sie unten die Details ein. Standardspeicherort wurde festgelegt für Berlin, Deutschland.</p>
 <form name="solarCalc" class="form-inline">
 <table width="560" border="0" cellspacing="2" cellpadding="2" align="left">
 	<tbody>
 	<tr>
-		<td>Date: <select name="day" id= "selectDay" class="form-control">
+		<td>Datum: <select name="day" id= "selectDay" class="form-control">
 <option value="1" selected="">01</option>
 <option value="2">02</option>
 <option value="3">03</option>
@@ -64,7 +64,7 @@
 <option value="31">31</option>
 </select>
 of
-<select name="month" id = "selectMonth" class="form-control"><option value="0" selected="" >January</option> <option value="31">February</option> <option value="59">March</option> <option value="90">April</option> <option value="120">May</option> <option value="151">June</option> <option value="181">July</option> <option value="212">August</option> <option value="243">September</option> <option value="273">October</option> <option value="304">November</option> <option value="334">December</option></select> Time:
+<select name="month" id = "selectMonth" class="form-control"><option value="0" selected="" >Januar</option> <option value="31">Februar</option> <option value="59">März</option> <option value="90">April</option> <option value="120">Mai</option> <option value="151">Juni</option> <option value="181">July</option> <option value="212">August</option> <option value="243">September</option> <option value="273">Oktober</option> <option value="304">November</option> <option value="334">Dezember</option></select> Zeit:
 <select name="hour" id = "selectHour" class="form-control">
 <option value="4">04</option>
 <option value="5">05</option>
@@ -144,9 +144,9 @@ of
 <option value="57">57</option>
 <option value="58">58</option>
 <option value="59">59</option>
-</select> hours<input type="button" id="btnDate" class="btn btn-lg btn-success" value="Use today's date" onclick="getDate();"></td></tr>
+</select> hours<input type="button" id="btnDate" class="btn btn-lg btn-success" value="Nutze das heutige Datum" onclick="getDate();"></td></tr>
 	<tr>
-		<td>Time Zone:
+		<td>Zeitzone:
 <select name="tzHour" class="form-control">
 	<option value="11">+ 11</option>
 <option value="10">+ 10</option>
@@ -154,10 +154,10 @@ of
 <option value="8">+ 08</option>
 <option value="7">+ 07</option>
 <option value="6">+ 06</option>
-<option value="5" selected="">+ 05</option>
+<option value="5" >+ 05</option>
 <option value="4">+ 04</option>
 <option value="3">+ 03</option>
-<option value="2">+ 02</option>
+<option value="2" selected="">+ 02</option>
 <option value="1">+ 01</option>
 <option value="0">± 0</option>
 <option value="-1">- 01</option>
@@ -174,40 +174,39 @@ of
 </select>
 		:
 		<select name="tzMin" class="form-control">
-	<option value="0">00</option>
+	<option value="0" selected="">00</option>
 <option value="15">15</option>
 <option value="30">30</option>
-<option value="45" selected="">45</option>
+<option value="45" >45</option>
 </select> of GMT
 		</td>
 	</tr>
 	<tr>
-		<td>Latitude: <input name="latBox" value="34.93" class="form-control"> ° <input name="northSouth" type="radio">North <input name="northSouth" type="radio" checked="">South</td>
+		<td>Breitengrad: <input name="latBox" value="52.52437" class="form-control"> ° <input name="northSouth" type="radio">Norden <input name="northSouth" type="radio" checked="">Süden</td>
 	</tr>
 	<tr>
-		<td>Longitude: <input name="longBox" value="138.60"class="form-control"> ° <input checked="" name="eastWest" type="radio">East <input name="eastWest" type="radio">West</td>
+		<td>Längengrad: <input name="longBox" value="13.41053"class="form-control"> ° <input checked="" name="eastWest" type="radio">Ost <input name="eastWest" type="radio">West</td>
 	</tr>
 	<tr>
-		<td>Wall Azimuth angle: <input name="wall" size="6" value="180" class="form-control"> °
- , With respect to<br>
-      <input checked="" name="trueMag" type="radio" class="form-control">True North, or <input name="trueMag" type="radio" class="form-control"> Magnetic North
-(e.g. 0° for North facing wall and going clockwise-90° for East facing wall and so on)</td>
+		<td>Azimutwinkel: <input name="wall" size="6" value="180" class="form-control"> °
+ , in bezug auf den<br>
+      <input checked="" name="trueMag" type="radio" class="form-control">geographischen Norden, oder <input name="trueMag" type="radio" class="form-control"> magnetischen Norden
+(z.B. 0° für eine nördliche Wand und im Uhrzeigersinn -90° für östlich getichtete Wand und so weiter)</td>
 </tr>
 <tr><td>
-Magnetic Declination:<input name="mDec" size="7" value="0" class="form-control"> °
-<input checked="" name="decEastWest" type="radio" class="form-control">East <input name="decEastWest" type="radio" class="form-control">West
+Ostmissweisweisung:<input name="mDec" size="7" value="0" class="form-control"> °
+<input checked="" name="decEastWest" type="radio" class="form-control">Ost <input name="decEastWest" type="radio" class="form-control">West
 </td></tr>
 <tr>
-<td>Inclination of receiving plane to the horizon: <input name="inc" size="5" value="90" class="form-control"> °
-(e.g. 90° for vertical wall, 0° for horizontal plane)</td>
+<td>Neigung of der  Fläche im Beziehung zum Horizont: <input name="inc" size="5" value="90" class="form-control"> °
+(z.B. 90° für eine vertikale  Wand, 0° für eine horizontale Fläche)</td>
 </tr>
 <tr>
-<td>Output angles with respect to: <input checked="" name="outAng" type="radio" class="form-control">True North, or <input name="outAng" type="radio" class="form-control">Magnetic North</td>
+<td>Ausgangswinkel in Beziehung zum <input checked="" name="outAng" type="radio" class="form-control">geographischen Norden, oder <input name="outAng" type="radio" class="form-control">magnetischen Norden</td>
 </tr>
 <tr><td>
   <input type="checkbox" name="htmlToo" class="form-control" checked="">
-  Output table for solar angles
-with data every
+  Tabelle in Zeitabstand erstellen von
 <select name="sample" class="form-control">
 <option value="5">5</option>
 <option value="10">10</option>
@@ -216,13 +215,13 @@ with data every
 <option value="45">45</option>
 <option value="60">60</option>
 </select>
-minutes
+Minuten
 </td></tr>
 <tr>
 <td>
-  <input type="button" id="ams" class="btn btn-lg btn-primary" value="Generate table of solar angles" onclick="genTable();">
+  <input type="button" id="ams" class="btn btn-lg btn-primary" value="Berechne eine Tabelle der Sonnenwinkel" onclick="genTable();">
   <!-- <input type="button" onclick="findSolution();" class="btn btn-lg btn-primary" value="Generate Solution" id="button1"> -->
-<input type="button" class="btn btn-lg btn-danger" value="Reset" onclick="resetForm();" id="button2" name="button2"></td>
+<input type="button" class="btn btn-lg btn-danger" value="Zurücksetzen" onclick="resetForm();" id="button2" name="button2"></td>
 </tr>
 </tbody>
 </table>
@@ -230,11 +229,11 @@ minutes
 </div>
 <br>
 <div class="container">
-  <div id="outputhtml" class="jumbotron">Output will appear here.</div>
+  <div id="outputhtml" class="jumbotron">Das Ergebnis wird hier erscheinen.</div>
 </div>
 <footer class="footer">
   <div class="container">
-    <p class="text-muted"><a href="https://github.com/asheshwor/solar-calculator">Code</a> by Asheshwor. Distributed under the terms of the <a href="https://github.com/asheshwor/solar-calculator/blob/master/LICENSE">MIT license</a></p>
+    <p class="text-muted"><a href="https://github.com/asheshwor/solar-calculator">Code</a> by Asheshwor and <a href="https://github.com/xhighway999/solar-calculator-german">translated</a> by xhighway999. Distributed under the terms of the <a href="https://github.com/asheshwor/solar-calculator/blob/master/LICENSE">MIT license</a></p>
   </div>
 </footer>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

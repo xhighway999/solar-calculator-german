@@ -18,7 +18,7 @@ window.status=' * R E A D Y * ';
 var line="  _______________________________________________";
 var c1=0;
 var footer="";
-monthName=new Array ("monthName","January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
+monthName=new Array ("monthName","Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember")
 monthValue=new Array("monthValue", "0", "31", "59", "90", "120", "151", "181", "212", "243", "273", "304", "334");
 //
 function getMonthName()
@@ -114,16 +114,16 @@ st=getSST(getSRT(getSRH())) - cor;
 html=" ";
 html=html+"<h4>Solar calculations</h4>";
 html=html+"<TABLE WIDTH=460 BORDER=1 CELLSPACING=0 CELLPADDING=2>";
-html=html+add2table("Date",getMonthName());
-html=html+add2table("Time zone",getZoneText());
-html=html+add2table("Latitude",getLatText());
-html=html+add2table("Longitude",getLongText());
+html=html+add2table("Datum",getMonthName());
+html=html+add2table("Zeitzone",getZoneText());
+html=html+add2table("Breitengrad",getLatText());
+html=html+add2table("Längengrad",getLongText());
 html=html+add2table("Julian Date",getNDY());
 html=html+add2table("Equation of Time",(getEQT(getNDY())+" minutes"));
 html=html+add2table("Local correction",fix(getLocalCor()*60,2)+" minutes");
 html=html+add2table("Declination of earth", fix(getDEC(),2)+"°");
 html=html+add2table("Horizontal angles measured with", northType());
-html=html+add2table("Magnetic Declination", magDecText());
+html=html+add2table("Ostmissweisweisung", magDecText());
 html=html+add2table("Local Sunrise Time", breakTime(rt)+" hrs");
 html=html+add2table("Sunrise Azimuth",fix(getAZI(getSRT(getSRH()))+getCorAng(),2)+"°");
 html=html+add2table("Local Sunset Time", breakTime(st)+" hrs");
@@ -318,11 +318,11 @@ function getLatText()
 lat=document.solarCalc.latBox.value*1;
 if (document.solarCalc.northSouth[1].checked)
 	{
-	dc="South";
+	dc="Süden";
 	}
 else
 	{
-	dc="North";
+	dc="Norden";
 	}
 return lat+" ° "+dc;
 }
@@ -335,7 +335,7 @@ if (document.solarCalc.eastWest[1].checked)
 	}
 else
 	{
-	dc="East";
+	dc="Ost";
 	}
 return lon+" ° "+dc;
 }
@@ -343,11 +343,11 @@ function northType()
 {
 if (document.solarCalc.outAng[1].checked)
 	{
-	out="Magnetic North";
+	out="magnetischer Norden";
 	}
 else
 	{
-	out="True North";
+	out="geographischer Norden";
 	}
 return out;
 }
@@ -360,7 +360,7 @@ if (document.solarCalc.decEastWest[1].checked)
 	}
 else
 	{
-	dc="East";
+	dc="Ost";
 	}
 return tex+" ° "+dc;
 }
